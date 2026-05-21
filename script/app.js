@@ -1,0 +1,98 @@
+import {
+  openProfile,
+} from "./auth.js";
+
+
+
+let schemes_list;
+let home;
+let articles;
+let sidebar;
+let ProfilePage;
+
+
+// ===============================
+// 🚀 INIT
+// ===============================
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("Page loaded");
+
+  // DOM elements
+  schemes_list = document.querySelector("#schemes-list");
+  home = document.querySelector("#home");
+  articles = document.querySelector("#articles");
+  sidebar = document.getElementById("sidebar");
+  ProfilePage = document.getElementById("ProfilePage");
+  render("home");
+  
+});
+
+
+// make global
+window.render = render;
+
+
+// ===============================
+// 📦 PAGE RENDER SYSTEM
+// ===============================
+function render(page) {
+
+  // safety check (IMPORTANT)
+  if (!schemes_list || !home || !articles) return;
+
+  // hide all
+  home.classList.add("hidden");
+  schemes_list.classList.add("hidden");
+  articles.classList.add("hidden");
+  ProfilePage.classList.add("hidden");
+
+  // ================= HOME ================
+  if (page === "home") {
+    home.classList.remove("hidden");
+
+    if (sidebar) {
+      sidebar.classList.remove("active");
+    }
+  }
+
+  // ================ SCHEMES ==============
+  else if (page === "schemes") {
+    schemes_list.classList.remove("hidden");
+  }
+
+  // ============== ARTICLES ==============
+  else if (page === "articles") {
+    articles.classList.remove("hidden");
+  }
+  
+  
+    // ============== PROFILE ==============
+  else if (page === "ProfilePage") {
+    ProfilePage.classList.remove("hidden");
+    openProfile();
+  }
+  
+}
+
+function closeSidebar() {
+  if (sidebar) {
+    sidebar.classList.remove("active");
+  }
+}
+
+document.querySelectorAll(".sidebar p").forEach(item => {
+  item.addEventListener("click", () => {
+    closeSidebar();
+  });
+});
+
+document.addEventListener("click", (e) => {
+  if (!sidebar || !menuBtn) return;
+
+  const isInsideSidebar = sidebar.contains(e.target);
+  const isMenuBtn = menuBtn.contains(e.target);
+
+  if (!isInsideSidebar && !isMenuBtn) {
+    closeSidebar();
+  }
+});
