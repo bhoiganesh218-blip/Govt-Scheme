@@ -1,0 +1,857 @@
+* {
+  box-sizing: border-box;
+}
+
+
+
+/* ===============================
+   👤 PROFILE PAGE (ISOLATED FIX)
+   ONLY affects #ProfilePage children
+=============================== */
+
+#ProfilePage {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 140px);
+  /* navbar + footer safety space */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+
+/* ===============================
+   📦 WRAPPER
+=============================== */
+
+#ProfilePage .profile-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  min-height: 70vh;
+}
+
+
+/* ===============================
+   🪪 CARD
+=============================== */
+
+#ProfilePage .profile-card {
+  width: 100%;
+  max-width: 420px;
+
+  background: #ffffff;
+  border-radius: 16px;
+
+  padding: 25px;
+  text-align: center;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+
+  animation: profileFade 0.3s ease;
+
+  margin-top: 10px; /* navbar safety */
+}
+
+
+/* ===============================
+   👤 AVATAR
+=============================== */
+
+#ProfilePage .profile-avatar {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+
+/* ===============================
+   📧 EMAIL
+=============================== */
+
+#ProfilePage .profile-email {
+  color: gray;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+
+/* ===============================
+   💬 MESSAGE
+=============================== */
+
+#ProfilePage .profile-msg {
+  margin: 15px 0;
+  font-size: 14px;
+  color: #444;
+}
+
+
+/* ===============================
+   🚪 BUTTON
+=============================== */
+
+#ProfilePage .logout-btn {
+  margin-top: 15px;
+
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(135deg, #ef4444, #f97316);
+  color: white;
+
+  cursor: pointer;
+  font-weight: 600;
+
+  transition: 0.2s ease;
+}
+
+#ProfilePage .logout-btn:hover {
+  transform: scale(1.05);
+}
+
+
+/* ===============================
+   🔥 MODAL (ISOLATED)
+=============================== */
+
+#ProfilePage .logout-modal {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0,0,0,0.45);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+}
+
+
+/* ===============================
+   📦 BOX
+=============================== */
+
+#ProfilePage .logout-box {
+  background: white;
+  padding: 20px;
+
+  border-radius: 12px;
+  text-align: center;
+
+  width: 280px;
+}
+
+
+/* ===============================
+   🔘 BUTTONS
+=============================== */
+
+#ProfilePage .logout-actions {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 15px;
+}
+
+#ProfilePage .logout-actions button {
+  flex: 1;
+  margin: 0 5px;
+
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+
+#ProfilePage #confirmLogout {
+  background: #ef4444;
+  color: white;
+}
+
+#ProfilePage #cancelLogout {
+  background: #e5e7eb;
+}
+
+
+/* ===============================
+   ✨ ANIMATION
+=============================== */
+
+@keyframes profileFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+
+
+
+/* 📱 Bottom Navigation */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  height: 65px;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+
+  border-top: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.08);
+
+  z-index: 9999;
+}
+
+/* 📌 Each item */
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+  width: 25%;
+}
+
+/* 🖼 Icon */
+.nav-item img {
+  width: 22px;
+  height: 22px;
+  margin-bottom: 3px;
+  opacity: 0.7;
+  transition: 0.2s ease;
+}
+
+/* 🏷 Label */
+.nav-item figcaption {
+  font-size: 11px;
+  color: #555;
+}
+
+/* ✨ Active state */
+.nav-item.active img {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.nav-item.active figcaption {
+  color: #10b981;
+  font-weight: 600;
+}
+
+/* ✨ Hover effect */
+.nav-item:hover img {
+  transform: translateY(-2px);
+  opacity: 1;
+}
+
+/* 📱 Mobile spacing fix */
+body {
+  padding-bottom: 70px; /* bottom nav space */
+}
+
+
+
+
+
+
+
+
+
+/* 🔥 Overlay */
+.auth-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 99999;
+}
+
+/* hidden */
+.hidden {
+  display: none;
+}
+
+/* 🧾 Box */
+.auth-box {
+  width: 90%;
+  max-width: 360px;
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ❌ close */
+.close-btn {
+  float: right;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Tabs */
+.auth-tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.auth-tabs button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  background: #eee;
+  transition: 0.3s;
+}
+
+.auth-tabs button.active {
+  background: #10b981;
+  color: white;
+}
+
+/* Forms */
+.form {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form.active {
+  display: flex;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+/* Buttons */
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.google-btn {
+  margin-top: 10px;
+  background: #db4437;
+  color: white;
+}
+
+
+
+
+
+
+/* 🔥 Full Screen Loader */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 99999;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+/* Active state */
+#loader.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Loader Box */
+.loader-box {
+  text-align: center;
+}
+
+/* 🎯 Spinner */
+.spinner {
+  width: 50px;
+  height: 50px;
+
+  border: 5px solid #d1fae5;
+  border-top: 5px solid #10b981;
+
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+
+  margin: auto;
+  margin-bottom: 12px;
+}
+
+/* Animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Text */
+.loader-box p {
+  font-size: 14px;
+  color: #333;
+}
+
+/* ✨ Extra glow effect */
+.spinner::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
+}
+
+
+
+
+
+
+
+
+
+/* 📦 Article Section */
+#articles {
+  width: 100% !important;
+  margin-top: 70px; /* navbar space */
+  padding: 12px;
+}
+
+/* 🧾 Full Page Container */
+.article-page {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  background: #ffffff;
+
+  padding: 16px;
+  border-radius: 12px;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* 🔙 Back Button */
+.back-btn {
+  display: inline-block;
+  margin-bottom: 15px;
+
+  padding: 8px 12px;
+  font-size: 14px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #11998e;
+  color: white;
+  cursor: pointer;
+}
+
+/* 🏷 Title */
+.article-title {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: #111;
+  line-height: 1.4;
+}
+
+/* 📄 Content (text based) */
+.article-content p {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* 📚 Sections */
+.section {
+  margin-top: 20px;
+}
+
+.section h2 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #11998e;
+}
+
+/* 📋 Lists */
+.section ul {
+  padding-left: 18px;
+}
+
+.section li {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+/* 🔗 Link */
+.section a {
+  color: #11998e;
+  text-decoration: none;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.section a:hover {
+  text-decoration: underline;
+}
+
+/* 📱 Tablet */
+@media (min-width: 600px) {
+  #articles {
+    padding: 20px;
+  }
+
+  .article-page {
+    padding: 22px;
+  }
+
+  .article-title {
+    font-size: 24px;
+  }
+}
+
+/* 💻 Laptop */
+@media (min-width: 992px) {
+  #articles {
+    padding: 30px 40px;
+  }
+
+  .article-page {
+    padding: 30px;
+  }
+
+  .article-title {
+    font-size: 26px;
+  }
+
+  .article-content p,
+  .section li {
+    font-size: 15px;
+  }
+}
+
+
+
+
+
+
+
+/* 📦 Schemes Section */
+#schemes-list {
+  width: 100%;
+  margin-top: 70px;
+  padding: 12px;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+
+  /* 👇 Full screen cover kare but stretch na kare */
+  min-height: calc(100vh - 140px);
+  align-content: start;
+}
+
+/* 🧾 Scheme Card */
+.scheme-card {
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 12px;
+
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Title */
+.scheme-card h3 {
+  margin-bottom: 6px;
+  font-size: 15px;
+  color: #1a1a1a;
+}
+
+/* Description */
+.scheme-card p {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Hover / Tap */
+.scheme-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.25);
+}
+
+/* 📱 Tablet */
+@media (min-width: 600px) {
+  #schemes-list {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 16px;
+  }
+
+  .scheme-card {
+    padding: 18px;
+  }
+
+  .scheme-card h3 {
+    font-size: 16px;
+  }
+}
+
+/* 💻 Laptop */
+@media (min-width: 992px) {
+  #schemes-list {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 20px 30px;
+
+    /* 👇 center feel (optional remove if full edge chahiye) */
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .scheme-card {
+    padding: 20px;
+  }
+
+  .scheme-card h3 {
+    font-size: 17px;
+  }
+
+  .scheme-card p {
+    font-size: 14px;
+  }
+}
+
+
+
+/* ============== FRONT PAGE ========= */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f0fdf4, #d1fae5);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(90deg, #11998e, #38ef7d);
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  z-index: 1000;
+}
+
+/* Logo container */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Logo image */
+.logo img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+/* Text */
+.logo span {
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+}
+
+.menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 60px;
+  left: -220px;
+  width: 220px;
+  height: 100%;
+  background: linear-gradient(180deg, #0f2027, #2c5364);
+  color: white;
+  padding: 20px;
+  transition: 0.3s;
+  z-index: 999;
+}
+
+.sidebar.active {
+  left: 0;
+  z-index: 999;
+}
+
+/* Container */
+.container {
+  margin-top: 70px;
+  padding: 15px;
+  min-height: 100vh;
+}
+
+/* Hero */
+.hero {
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Categories */
+.categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Hover */
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Info */
+.info-box {
+  background: #fff3cd;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px 15px;
+  margin-top: 40px;
+
+  background: linear-gradient(90deg, #11998e, #38ef7d);
+  color: white;
+
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+}
+
+/* Footer text */
+footer p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+/* Links container */
+.footer-links {
+  margin-top: 10px;
+}
+
+/* Links */
+.footer-links a {
+  color: white;
+  margin: 0 12px;
+  text-decoration: none;
+  font-size: 13px;
+  position: relative;
+}
+
+/* ✨ Hover underline animation */
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -3px;
+  background: white;
+  transition: 0.3s;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+/* Responsive */
+@media (min-width: 600px) {
+  .categories {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 900px;
+    margin: 80px auto;
+  }
+
+  .categories {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

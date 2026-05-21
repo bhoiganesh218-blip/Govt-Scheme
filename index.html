@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Govt Schemes</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="loader">
+  <div class="loader-box">
+    <div class="spinner"></div>
+    <p>Loading schemes...</p>
+  </div>
+</div>
+
+
+
+
+  <!-- 🔝 Navbar -->
+<nav class="navbar">
+  <div class="menu-icon" id="menuBtn">&#9776;</div>
+
+  <div class="logo">
+    <h2>Gov Schemes</h2>
+    <img src="images/map.png" alt="logo">
+  </div>
+</nav>
+
+  📂 Sidebar
+  <div class="sidebar" id="sidebar">
+    <p onclick="render('home')">🏠 Home</p>
+    <p>💾 Saved</p>
+    <p>ℹ️ About</p>
+  </div>
+ <!-- __________________________________-->
+ <section id="schemes-list"></section>
+ <section id="articles"></section>
+ <section id="ProfilePage"></section>
+ 
+ 
+ 
+ 
+  <!-- __________________________________-->
+
+  <!-- 📦 Main -->
+  <div id="home" class="container">
+
+    <!-- 🧠 Hero -->
+    <div class="hero">
+      <h1>ସରକାରୀ ଯୋଜନା ପୋର୍ଟାଲ</h1>
+      <p>Odisha ଓ India ର financial schemes ସମ୍ବନ୍ଧୀୟ ସୂଚନା ଏଠାରେ ପାଆନ୍ତୁ।</p>
+    </div>
+
+    <h3>Select Category</h3>
+
+    <!-- 🧩 Categories -->
+    <div class="categories">
+      <div class="card" data-category="farmer">🌾କୃଷକ</div>
+      <div class="card" data-category="student">🎓 ଛାତ୍ର</div>
+      <div class="card" data-category="women">👩 ମହିଳା</div>
+      <div class="card" data-category="jobs">💼 ଚାକିରି</div>
+
+      <div class="card" data-category="pension">👴 ପେନ୍ସନ୍</div>
+      <div class="card" data-category="insurance">🛡 ବୀମା</div>
+      <div class="card" data-category="loan">🏦 ଋଣ</div>
+      <div class="card" data-category="investment">📈 ନିବେଶ</div>
+
+      <div class="card" data-category="business">🏪 ବ୍ୟବସାୟ</div>
+      <div class="card" data-category="subsidy">💸 ସହାୟତା</div>
+      <div class="card" data-category="health">🏥 ସ୍ୱାସ୍ଥ୍ୟ</div>
+      <div class="card" data-category="general">📂 ସାଧାରଣ</div>
+    </div>
+
+    <!-- 💡 Info -->
+    <div class="info-box">
+      <p>⚠️ ଆବେଦନ କରିବା ପୂର୍ବରୁ ସରକାରୀ ୱେବସାଇଟ୍ ଯାଞ୍ଚ କରନ୍ତୁ।</p>
+    </div>
+
+  </div>
+  
+  
+  
+  <div id="authModal" class="auth-modal hidden">
+
+  <div class="auth-box">
+
+    <span class="close-btn" id="closeAuth">×</span>
+
+    <div class="auth-tabs">
+      <button id="loginTab" class="active">Login</button>
+      <button id="signupTab">Sign Up</button>
+    </div>
+
+    <!-- LOGIN -->
+    <div id="loginForm" class="form active">
+      <input type="email" placeholder="Email">
+      <input type="password" placeholder="Password">
+      <button id="loginBtn">Login</button>
+    </div>
+
+    <!-- SIGNUP -->
+    <div id="signupForm" class="form">
+      <input type="text" placeholder="Name">
+      <input type="email" placeholder="Email">
+      <input type="password" placeholder="Password">
+      <button id="signupBtn">Sign Up</button>
+    </div>
+
+    <button id="googleBtn" class="google-btn">
+      Continue with Google
+    </button>
+
+  </div>
+
+</div>
+  
+  
+<!-- 📱 Bottom Navigation -->
+<nav class="bottom-nav">
+
+  <div class="nav-item active" onclick="render('home')">
+    <img src="icons/home.png" alt="Home">
+    <figcaption>Home</figcaption>
+  </div>
+
+  <div class="nav-item">
+    <img src="icons/menu.png" alt="Menu">
+    <figcaption>Menu</figcaption>
+  </div>
+
+  <div class="nav-item">
+    <img src="icons/about.png" alt="About">
+    <figcaption>About</figcaption>
+  </div>
+
+  <div class="nav-item" onclick="render('ProfilePage')">
+    <img src="icons/profile.png" alt="Profile">
+    <figcaption>Profile</figcaption>
+  </div>
+
+</nav>
+  
+  
+
+  <!-- 🔻 Footer -->
+  <footer>
+    <p>© 2026 Govt Schemes</p>
+    <div class="footer-links">
+      <a onclick="render('home')">Home</a>
+      <a href="#">Contact</a>
+      <a href="#">Privacy</a>
+    </div>
+  </footer>
+
+  <script type="module" src="./script/script.js"></script>
+  <script type="module" src="./script/app.js"></script>
+</body>
+</html>
